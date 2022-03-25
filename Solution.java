@@ -47,9 +47,9 @@ public class Solution {
         while (!queue.isEmpty()) {
 
             Edge current = queue.poll();
-            shortestPath[current.nextNode] = (shortestPath[current.nextNode] == -1)
-                    ? current.distanceFromStart
-                    : Math.min(shortestPath[current.nextNode], current.distanceFromStart);
+            shortestPath[current.nextNode] = (shortestPath[current.nextNode] == -1) ? 
+                                              current.distanceFromStart : 
+                                              Math.min(shortestPath[current.nextNode], current.distanceFromStart);
 
             if (!graph.containsKey(current.nextNode)) {
                 continue;
