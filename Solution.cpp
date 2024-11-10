@@ -34,8 +34,8 @@ private:
     vector<int> breadthFirstSearch(int numberOfNodes) {
 
         queue<Edge> queue;
-        queue.push(Edge(0, RED, 0));
-        queue.push(Edge(0, BLUE, 0));
+        queue.emplace(0, RED, 0);
+        queue.emplace(0, BLUE, 0);
 
         vector <vector<bool>> visited(numberOfNodes, vector<bool>(2, false));
         visited[0][0] = true;
@@ -74,14 +74,14 @@ private:
             if (graph.find(edge[0]) == graph.end()) {
                 graph[edge[0]] = vector<Edge>();
             }
-            graph[edge[0]].push_back(Edge(edge[1], RED, INT_MAX));
+            graph[edge[0]].emplace_back(edge[1], RED, INT_MAX);
         }
 
         for (const auto& edge : blueEdges) {
             if (graph.find(edge[0]) == graph.end()) {
                 graph[edge[0]] = vector<Edge>();
             }
-            graph[edge[0]].push_back(Edge(edge[1], BLUE, INT_MAX));
+            graph[edge[0]].emplace_back(edge[1], BLUE, INT_MAX);
         }
     }
 };
